@@ -2,7 +2,9 @@
 
 # The operator module exports a set of efficient
 # functions corresponding to the intrinsic operators of Python
-import operator
+# The sys module provides access to some variables used or maintained 
+# by the interpreter and to functions that interact with the interpreter
+import operator, sys
 
 # Function highestGCContent that inputs a text file with FASTA format DNA strings
 # and returns a FASTA formatted DNA string with the highest GC content.
@@ -55,7 +57,13 @@ def highestGCContent(fasta):
 
 # Find the DNA string, in FASTA format, with the highest GC content, percentage.
 # Use the highestFCContent function above.
-highestGCid = highestGCContent('../rosalind_gc.txt')
+
+
+if len(sys.argv) == 1: 
+    highestGCid = highestGCContent('rosalind_gc.txt')
+else:
+    highestGCid = highestGCContent(sys.argv[1])
+
 
 # Format and print the results: the id without >, and the percentage with 6 decimal places exactly.
 print(highestGCid[0].lstrip(">"))

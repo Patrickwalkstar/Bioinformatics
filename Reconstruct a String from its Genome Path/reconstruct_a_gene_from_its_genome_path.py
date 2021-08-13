@@ -1,10 +1,17 @@
 # See: http://rosalind.info/problems/ba3b/
 
+import sys
+
 # Initialize the final DNA string
 dnaString = ''
 
+if len(sys.argv) == 1: 
+    file = open('rosalind_ba3b.txt', mode='r')
+else:
+    file = open(sys.argv[1], mode='r')
+
 # Use the input file as reference to "fill" the string
-with open('rosalind_ba3b.txt', 'r') as f:
+with file as f:
 
     # Append each line's first character
     # to the final DNA string.

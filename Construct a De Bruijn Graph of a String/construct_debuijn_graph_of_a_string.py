@@ -1,7 +1,13 @@
 # See: http://rosalind.info/problems/ba3d/
 
+import sys
+
 # Initialize and open a file that contains an integer k and a genome text string
-file1 = open('rosalind_ba3d.txt', 'r')
+
+if len(sys.argv) == 1: 
+    file1 = open('rosalind_ba3d.txt', mode='r')
+else:
+    file1 = open(sys.argv[1], mode='r')
 
 # Initialize integer k and the genome text string
 k = int(file1.readline())
@@ -47,7 +53,7 @@ for fromkmers, tokmers in edgeKmers.items():
     print(nodes[fromkmers], '->', ','.join(sorted([nodes[tokmerVal] for tokmerVal in tokmers])))
 
 
-file = open("../rosalind_ba3d.txt", "r")
+file = open("rosalind_ba3d.txt", "r")
 num = int(file.readline())
 DNAstring = file.readline()
 

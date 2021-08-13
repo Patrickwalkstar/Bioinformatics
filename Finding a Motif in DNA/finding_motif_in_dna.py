@@ -1,12 +1,17 @@
 # See: http://rosalind.info/problems/subs/
 
+import sys
+
 # Open the file in read-only format
-file1 = open('../rosalind_subs.txt', 'r')
+if len(sys.argv) == 1: 
+    file = open('rosalind_subs.txt', mode='r')
+else:
+    file = open(sys.argv[1], mode='r')
 
 # Read in the first two lines of the file, the main DNA string
 # and the DNA substring
-s = file1.readline().rstrip('\n')
-t = file1.readline()
+s = file.readline().rstrip('\n')
+t = file.readline().rstrip('\n')
 
 # Find the indices where the substring appears in the main string.
 # Loop through the main string and compare the substring to

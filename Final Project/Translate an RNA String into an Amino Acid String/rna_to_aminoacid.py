@@ -8,8 +8,13 @@ Date: 9 November 2020
 See: http://rosalind.info/problems/ba4a/
 '''
 
+import sys
+
 # Open the file containing the RNA string "pattern"
-rna_file = open("rna.txt", "r")
+if len(sys.argv) == 1: 
+    rna_file = open('rna.txt', mode='r')
+else:
+    rna_file = open(sys.argv[1], mode='r')
 
 # Read the first and only line of the file, which is the RNA string,
 # remove the newline character from the right enf of the line

@@ -8,6 +8,8 @@ Date: 9 November 2020
 See: http://rosalind.info/problems/ba4b/
 '''
 
+import sys
+
 # A function that generates the reverse complement of a DNA string
 def reverse_complement(dna):
 
@@ -65,7 +67,10 @@ def find_substrings_encoding_amino_acid(dna, peptide):
     return substrings
 
 # Open the file containing the DNA string and an amino acid string (Peptide)
-dna_and_peptide_file = open("dna_string_and_amino_acid_string.txt", "r")
+if len(sys.argv) == 1: 
+    dna_and_peptide_file = open('dna_string_and_amino_acid_string.txt', mode='r')
+else:
+    dna_and_peptide_file = open(sys.argv[1], mode='r')
 
 # Read the first two lines of the file. The first line will contain the DNA string and
 # the second line will contain the amino acid string, the peptide. Strip the newline

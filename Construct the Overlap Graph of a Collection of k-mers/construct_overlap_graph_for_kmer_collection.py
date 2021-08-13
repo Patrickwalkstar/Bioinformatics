@@ -1,10 +1,15 @@
 # See: http://rosalind.info/problems/ba3c/
 
+import sys
+
 # Initialize and open a file with a collection of kmer Patterns
-file1 = open("../rosalind_ba3c.txt", 'r')
+if len(sys.argv) == 1: 
+    file = open('rosalind_ba3c.txt', mode='r')
+else:
+    file = open(sys.argv[1], mode='r')
 
 # Initialize and populate a list of patterns of kmers
-kmers = file1.read().split()
+kmers = file.read().split()
 
 #Initialize a list of adjacent overlapping kmer patterns
 listValues = []

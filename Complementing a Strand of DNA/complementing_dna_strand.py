@@ -1,7 +1,14 @@
 # See: http://rosalind.info/problems/revc/
 
-# Open the file in read-only format
-file1 = open('../rosalind_revc.txt', 'r')
+import sys 
+
+# Open the file in read-only format, if the file is not used as a command line argument
+# then open a file already in the same directory as the program.
+
+if len(sys.argv) == 1: 
+    file = open('rosalind_revc.txt', mode='r')
+else:
+    file = open(sys.argv[1], mode='r')
 
 # Find the reverse complement of the input DNA string.
 # The dnaString is read in and reversed (with [::-1], then A --> temp, T --> A, temp --> T
@@ -11,7 +18,7 @@ file1 = open('../rosalind_revc.txt', 'r')
 # be replaced by A or C in the second round of replacements. Thus, we would be left with
 # a string of As and Cs. Temp helps us remember which index values need to be replaced again.
 # This is common practice in coding, when we "swap" multiple values in the same string.
-dnaString = file1.readline()[::-1].replace('A', 'temp').replace('T', 'A').replace('temp', 'T')\
+dnaString = file.readline()[::-1].replace('A', 'temp').replace('T', 'A').replace('temp', 'T')\
                                   .replace('C', 'temp').replace('G', 'C').replace('temp', 'G')
 
 # Print the reverse complement of the original DNA string.

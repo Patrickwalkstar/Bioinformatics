@@ -1,10 +1,16 @@
 # See: http://rosalind.info/problems/ba3a/
 
-myfile = open("../rosalind_ba3a.txt", "r")
-myfile = myfile.readlines()
+import sys
 
-k = int(myfile[0].rstrip())
-myseq = myfile[1].rstrip()
+if len(sys.argv) == 1: 
+    file = open('rosalind_ba3a.txt', mode='r')
+else:
+    file = open(sys.argv[1], mode='r')
+
+lines = file.readlines()
+
+k = int(lines[0].rstrip())
+myseq = lines[1].rstrip()
 
 def kmer_comp(string, number):
     kmers = []

@@ -1,8 +1,14 @@
 # See: http://rosalind.info/problems/ba3e/
-# Initialize and open a file that contains a collection of kmer patterns
-file1 = open('../rosalind_ba3e.txt', 'r')
 
-kmers_list = file1.read().split()
+import sys
+
+# Initialize and open a file that contains a collection of kmer patterns
+if len(sys.argv) == 1: 
+    file = open('rosalind_ba3e.txt', mode='r')
+else:
+    file = open(sys.argv[1], mode='r')
+
+kmers_list = file.read().split()
 
 # First sort the input list of kmers
 kmers_list.sort()
