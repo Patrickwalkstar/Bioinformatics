@@ -19,7 +19,7 @@ def reverse_complement(dna):
     # In reverse, order: for every base in the dna string, find the complement -
     # the matching value in the dictionary. Then, join the complements.
     base_list = []
-    for base in dna[::-1]:
+    for base in reversed(dna):
         base_list.append(complements[base])
     return ''.join(base_list)
 

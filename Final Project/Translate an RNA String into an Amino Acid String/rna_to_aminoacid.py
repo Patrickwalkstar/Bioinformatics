@@ -40,17 +40,18 @@ rnaCodons = {"UUU":"F", "UUC":"F", "UUA":"L", "UUG":"L",
     "GGU":"G", "GGC":"G", "GGA":"G", "GGG":"G",}
 
 # Create an empty array to store the found codons
-myCodons = []
+foundCodons = []
 
 # Iterate through the rna string by codon (lengths of 3)
 for i in range(0, len(rna_string), 3):
 
     # Store each codon, which will be the current nucleotide to third one after the current nucleotide.
-    myCodons.append(rna_string[i:i+3])
+    foundCodons.append(rna_string[i:i+3])
 
 # First, find all the amino acid values for each codon and store them in a similarly ordered list.
 # Then, join the amino acids into a final peptide string.
-peptide = ''.join([rnaCodons[codon] for codon in myCodons])
+peptide = ''.join([rnaCodons[codon] for codon in foundCodons])
 
-# Finally, strip "Stop" from the end of the peptide and print the resulting value.
-print(peptide.rstrip('Stop'))
+# Finally, strip "Stop" from the end of the peptide and print the resulting value. Also, print the original rna string.
+print(f'RNA String: \n{rna_string} \n')
+print('Peptide: \n{} \n'.format(peptide.rstrip('Stop')))
