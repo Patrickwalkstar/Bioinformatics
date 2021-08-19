@@ -9,14 +9,14 @@ else:
 
 lines = file.readlines()
 
-k = int(lines[0].rstrip())
+k_length = int(lines[0].rstrip())
 myseq = lines[1].rstrip()
 
-def kmer_comp(string, number):
+def kmer_comp(sequence, k_length):
     kmers = []
-    for i in range(len(string) - number + 1):
-        kmers.append(string[i:i+number])
+    for i in range(len(sequence) - k_length + 1):
+        kmers.append(sequence[i:i + k_length])
     return kmers
 
-for i in kmer_comp(myseq, k):
+for i in kmer_comp(myseq, k_length):
     print(i)
