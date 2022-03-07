@@ -10,14 +10,11 @@ else:
 
 
 # Read in the first and second DNA strings and assign them to variables.
-# Also initialize a count to keep track of the number of differences.
-s, t, count = file.readline().rstrip('\n'), file.readline().rstrip('\n'), 0
+s, t = file.readline().rstrip('\n'), file.readline().rstrip('\n')
 
 # Iterate through each character of both input strings at the same time.
-# Look at the same index of both strings, if they do not match, increase the count.
-for char in range(len(s)):
-    if s[char] != t[char]:
-        count += 1
-
+# Look at the same index of both strings, if they do not match, return 1, else 0.
+character_difference_count = sum((1 if s[char] != t[char] else 0 for char in range(len(s))))
+    
 # Print the Hamming distance, the number of differences in symbols between the two input DNA strings.
-print(count)
+print(character_difference_count)

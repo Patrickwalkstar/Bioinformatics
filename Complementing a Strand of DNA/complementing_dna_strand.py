@@ -1,5 +1,6 @@
 # See: http://rosalind.info/problems/revc/
 
+from calendar import c
 import sys 
 
 # Open the file in read-only format, if the file is not used as a command line argument
@@ -25,15 +26,16 @@ original_dnaString = reversed_line.replace('A', 'temp').replace('T', 'A').replac
 # Simply store the elements of the string in a list, and depending on their base, replace it with the complement.
 # NOTE: Replacing values while iterating can be dangerous.
 new_dnaString = list(reversed_line)
-for index, base in enumerate(new_dnaString): 
-    if base == 'A':
-        new_dnaString[index] = 'T'
-    elif base == 'T':
-        new_dnaString[index] = 'A'
-    elif base == 'C':
-        new_dnaString[index] = 'G'
-    elif base == 'G':
-        new_dnaString[index] = 'C'
+for index, base in enumerate(new_dnaString):
+    match base:
+        case 'A':
+            new_dnaString[index] = 'T'
+        case 'T':
+            new_dnaString[index] = 'A'
+        case 'C':
+            new_dnaString[index] = 'G'
+        case 'G':
+            new_dnaString[index] = 'C'
 
 #Print the reverse complement of the original DNA string using the new method.
 print(''.join(new_dnaString))

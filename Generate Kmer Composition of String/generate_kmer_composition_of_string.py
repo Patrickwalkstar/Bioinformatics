@@ -12,11 +12,9 @@ lines = file.readlines()
 k_length = int(lines[0].rstrip())
 myseq = lines[1].rstrip()
 
+# Return a list of kmers
 def kmer_comp(sequence, k_length):
-    kmers = []
-    for i in range(len(sequence) - k_length + 1):
-        kmers.append(sequence[i:i + k_length])
-    return kmers
+    return [sequence[i:i + k_length] for i in range(len(sequence) - k_length + 1)]
 
 for i in kmer_comp(myseq, k_length):
     print(i)
