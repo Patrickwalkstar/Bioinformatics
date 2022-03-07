@@ -28,6 +28,7 @@ def translate(dna):
 
     # First check to see if the length of the dna is a multiple of 3, if not, then return nothing.
     if len(dna) % 3 != 0:
+        print('The length of the DNA is not a multiple of 3 (of 3-length)')
         return
 
     # If the length of the DNA string is a multiple of 3, then first, get the
