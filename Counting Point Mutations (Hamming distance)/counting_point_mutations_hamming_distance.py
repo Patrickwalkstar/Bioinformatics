@@ -17,3 +17,4 @@ character_difference_count = sum((1 if s[char] != t[char] else 0 for char in ran
     
 # Print the Hamming distance, the number of differences in symbols between the two input DNA strings.
 print(character_difference_count)
+
