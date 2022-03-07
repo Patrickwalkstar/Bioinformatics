@@ -8,7 +8,6 @@ if len(sys.argv) == 1:
 else:
     file = open(sys.argv[1], mode='r')
 
-
 # Read in the first and second DNA strings and assign them to variables.
 s, t = file.readline().rstrip('\n'), file.readline().rstrip('\n')
 
