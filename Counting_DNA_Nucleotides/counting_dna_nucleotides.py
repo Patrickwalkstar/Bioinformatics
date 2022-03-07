@@ -17,14 +17,15 @@ A, C, G, T = 0, 0, 0, 0
 # For each base in the input DNA string, if the base matches
 # the appropriate character, increase that base's count.
 for base in dnaString:
-    if base == 'A':
-        A += 1
-    if base == 'C':
-        C += 1
-    if base == 'G':
-        G += 1
-    if base == 'T':
-        T += 1
+    match base:
+        case 'A':
+            A += 1
+        case 'C':
+            C += 1
+        case 'G':
+            G += 1
+        case 'T':
+            T += 1
 
 # Print the counts of all bases, each to a new line.
-print('A: {}\nC: {}\nG: {}\nT: {}\n'.format(A,C,G,T))
+print(f'A: {A}\nC: {C}\nG: {G}\nT: {T}\n')
