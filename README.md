@@ -90,7 +90,7 @@ Determine the number of mutations between two strings of DNA. The difference of 
 
 The main goal of this project was to determine how we can sequence the human genome for the purpose of creating effective antibiotics. In this project we looked at a brief history of antibiotics, we examined their use and overall effectiveness (and forthcoming ineffectiveness, that is, with antibiotic-resistant bacteria), proteomics' role in the the development of medicines, and finally, we broke down the Central Dogma of Molecular Biology to computationally accomplish our goals. And to the last point, when we understand "DNA makes RNA makes protein", we can break that process down further to fully understand how we can create effective antibiotics. 
 
-**The first part:** translate an RNA string into an amino acid string. By finding the amino acid sequences, we are able to find certain antibiotics as well as make profound discoveries that relate to amino acids, including how Bacteria or other organisms produce such antibiotics, or other products beneficial to humans.
+**The first part:** Translate an RNA string into an amino acid string. By finding the amino acid sequences, we are able to find certain antibiotics as well as make profound discoveries that relate to amino acids, including how Bacteria or other organisms produce such antibiotics, or other products beneficial to humans.
 
 **The second part:** Find substrings of a genome that encodes for a given amino acid string. A, sort of, reverse engineering process that can determine where in a string of DNA a certain amino acid string is encoded.
 
