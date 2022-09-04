@@ -9,6 +9,7 @@ See: http://rosalind.info/problems/ba4b/
 '''
 
 import sys
+import json
 
 # A function that generates the reverse complement of a DNA string
 def reverse_complement(dna):
@@ -69,9 +70,9 @@ def find_substrings_encoding_amino_acid(dna, peptide):
 
 # Open the file containing the DNA string and an amino acid string (Peptide)
 if len(sys.argv) == 1: 
-    dna_and_peptide_file = open('dna_string_and_amino_acid_string.txt', mode='r')
+    dna_and_peptide_file = open('dna_string_and_amino_acid_string.txt', 'r')
 else:
-    dna_and_peptide_file = open(sys.argv[1], mode='r')
+    dna_and_peptide_file = open(sys.argv[1], 'r')
 
 # Read the first two lines of the file. The first line will contain the DNA string and
 # the second line will contain the amino acid string, the peptide. Strip the newline
@@ -79,24 +80,8 @@ else:
 dna_string = dna_and_peptide_file.readline().rstrip()
 amino_acid_string = dna_and_peptide_file.readline().rstrip()
 
-codon_table = {
-        'ATA': 'I', 'ATC': 'I', 'ATT': 'I', 'ATG': 'M',
-        'ACA': 'T', 'ACC': 'T', 'ACG': 'T', 'ACT': 'T',
-        'AAC': 'N', 'AAT': 'N', 'AAA': 'K', 'AAG': 'K',
-        'AGC': 'S', 'AGT': 'S', 'AGA': 'R', 'AGG': 'R',
-        'CTA': 'L', 'CTC': 'L', 'CTG': 'L', 'CTT': 'L',
-        'CCA': 'P', 'CCC': 'P', 'CCG': 'P', 'CCT': 'P',
-        'CAC': 'H', 'CAT': 'H', 'CAA': 'Q', 'CAG': 'Q',
-        'CGA': 'R', 'CGC': 'R', 'CGG': 'R', 'CGT': 'R',
-        'GTA': 'V', 'GTC': 'V', 'GTG': 'V', 'GTT': 'V',
-        'GCA': 'A', 'GCC': 'A', 'GCG': 'A', 'GCT': 'A',
-        'GAC': 'D', 'GAT': 'D', 'GAA': 'E', 'GAG': 'E',
-        'GGA': 'G', 'GGC': 'G', 'GGG': 'G', 'GGT': 'G',
-        'TCA': 'S', 'TCC': 'S', 'TCG': 'S', 'TCT': 'S',
-        'TTC': 'F', 'TTT': 'F', 'TTA': 'L', 'TTG': 'L',
-        'TAC': 'Y', 'TAT': 'Y', 'TAA': '_', 'TAG': '_',
-        'TGC': 'C', 'TGT': 'C', 'TGA': '_', 'TGG': 'W',
-    }
+with open('codon_table.json', 'r') as codon_table_file: 
+    codon_table = json.load(codon_table_file)
 
 for substring in find_substrings_encoding_amino_acid(dna_string, amino_acid_string):
     print(substring)
